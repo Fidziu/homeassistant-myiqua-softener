@@ -1,0 +1,11 @@
+{
+  "domain": "myiqua_softener",
+  "name": "MyIqua Water Softener",
+  "version": "0.2.0",
+  "documentation": "https://github.com/Fidziu/homeassistant-myiqua-softener",
+  "issue_tracker": "https://github.com/Fidziu/homeassistant-myiqua-softener/issues",
+  "codeowners": ["@Fidziu", "@jakubkotlorz"],
+  "requirements": [],
+  "iot_class": "cloud_polling",
+  "config_flow": true
+}

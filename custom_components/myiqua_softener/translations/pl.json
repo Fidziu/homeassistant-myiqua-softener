@@ -1,0 +1,22 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Zmiękczacz wody MyIqua",
+        "description": "Zaloguj się kontem z aplikacji iQua.",
+        "data": {
+          "email": "E-mail",
+          "password": "Hasło"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Nieprawidłowy e-mail lub hasło.",
+      "cannot_connect": "Nie udało się połączyć z chmurą iQua.",
+      "no_devices": "Nie znaleziono zmiękczacza na tym koncie."
+    },
+    "abort": {
+      "already_configured": "Ten zmiękczacz jest już skonfigurowany."
+    }
+  }
+}

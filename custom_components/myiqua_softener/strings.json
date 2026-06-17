@@ -1,0 +1,22 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "MyIqua Water Softener",
+        "description": "Sign in with your iQua app account.",
+        "data": {
+          "email": "E-mail",
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid e-mail or password.",
+      "cannot_connect": "Failed to connect to the iQua cloud.",
+      "no_devices": "No water softeners found on this account."
+    },
+    "abort": {
+      "already_configured": "This water softener is already configured."
+    }
+  }
+}
