@@ -3,6 +3,22 @@
 All notable changes to the MyIqua Water Softener integration.
 Format loosely follows [Keep a Changelog]. Dates are ISO (YYYY-MM-DD).
 
+## [0.2.2] — 2026-10-23
+
+### Added
+- **Diagnostics** (`diagnostics.py`): device properties + the cloud's
+  `GET /devices/{id}/settings` list + `enriched-data`, credentials redacted.
+
+### Investigated — setting the salt level from HA: not possible via the cloud
+- Wanted: after a refill, set the salt level from HA (the softener cannot
+  measure salt; until someone enters a level it stays 0 % and `out_of_salt_in`
+  = 0 days). Live check on our Aquahome Duo Smart: the settings list has 18
+  items (units, hardness, salt *type*, regeneration time, flow alert, …) but no
+  salt level; `PATCH /devices/{id}` only takes nickname/flags; the iQua web app
+  only displays salt. `salt_level_tenths` has not changed since 2026-08-16.
+  So no entity was added; a draft that would auto-appear if the cloud ever
+  exposes such a setting is kept on branch `salt-level-setting`.
+
 ## [0.2.1] — 2026-10-23
 
 ### Fixed
@@ -82,6 +98,7 @@ iQua app). Everything below was built and deployed on the same day, in this orde
   offline / high-daily-usage (threshold helper).
 - `Total water used` added to the **Energy** dashboard as the house water meter.
 
+[0.2.2]: https://github.com/Fidziu/homeassistant-myiqua-softener/releases/tag/v0.2.2
 [0.2.1]: https://github.com/Fidziu/homeassistant-myiqua-softener/releases/tag/v0.2.1
 [0.2.0]: https://github.com/jakubkotlorz/myiqua-api-poc
 [Keep a Changelog]: https://keepachangelog.com/

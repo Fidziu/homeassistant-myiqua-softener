@@ -65,6 +65,8 @@ HA Energy dashboard**.
 | Commands | `PUT /devices/{id}/command {function, action}` (regenerate / schedule / cancel). |
 | Rate limit | The legacy EcoWater API blocked accounts above ~1000 req/day. At 5-min polling this is ~288/day. The live WebSocket is one short-lived connection, opened only on demand. |
 | Discovery note | The cloud only refreshes `current_water_flow_gpm` while a client is "active" (app open **or** our live WebSocket). Polling alone shows a frozen value between active sessions — this is a cloud limitation, not a bug. Leak detection does **not** depend on it (the device computes `flow_monitor_alert` itself). |
+| Salt level | **Read-only.** The softener does not measure salt; `salt_level_tenths` is the level last entered on the device and counted down per regeneration. The cloud API has **no write** for it (checked 2026-10-23: not among the 18 items of `GET /devices/{id}/settings`, not in the OpenAPI spec, not in the iQua web app). After refilling, set the level on the softener's control panel. |
+| Diagnostics | *Settings → Devices & services → MyIqua → ⋮ → Download diagnostics* returns the device properties, the cloud's settings list and enriched data (e-mail/password redacted). |
 
 OpenAPI spec (handy reference): `https://api.myiquaapp.com/v1/openapi.json`.
 

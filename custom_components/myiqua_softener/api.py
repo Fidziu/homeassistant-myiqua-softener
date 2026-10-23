@@ -15,7 +15,7 @@ _LOGGER = logging.getLogger(__name__)
 
 BASE_URL = "https://api.myiquaapp.com/v1"
 WS_BASE = "wss://api.myiquaapp.com"
-USER_AGENT = "home-assistant-myiqua/0.2.1"
+USER_AGENT = "home-assistant-myiqua/0.2.2"
 TIMEOUT = 15
 
 
