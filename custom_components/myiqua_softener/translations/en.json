@@ -8,15 +8,34 @@
           "email": "E-mail",
           "password": "Password"
         }
+      },
+      "reauth_confirm": {
+        "title": "Re-authenticate MyIqua",
+        "description": "The iQua cloud keeps rejecting the saved login for {name}. Enter your iQua app e-mail and password again.",
+        "data": {
+          "email": "E-mail",
+          "password": "Password"
+        }
+      },
+      "reconfigure": {
+        "title": "Change MyIqua credentials",
+        "description": "Update the iQua app e-mail and password used for {name}.",
+        "data": {
+          "email": "E-mail",
+          "password": "Password"
+        }
       }
     },
     "error": {
       "invalid_auth": "Invalid e-mail or password.",
       "cannot_connect": "Failed to connect to the iQua cloud.",
-      "no_devices": "No water softeners found on this account."
+      "no_devices": "No water softeners found on this account.",
+      "wrong_account": "This account does not contain the configured water softener."
     },
     "abort": {
-      "already_configured": "This water softener is already configured."
+      "already_configured": "This water softener is already configured.",
+      "reauth_successful": "Re-authentication was successful.",
+      "reconfigure_successful": "Credentials updated."
     }
   }
 }

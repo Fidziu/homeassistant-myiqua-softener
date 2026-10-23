@@ -3,6 +3,32 @@
 All notable changes to the MyIqua Water Softener integration.
 Format loosely follows [Keep a Changelog]. Dates are ISO (YYYY-MM-DD).
 
+## [0.2.1] — 2026-10-23
+
+### Fixed
+- **A single rejected login no longer takes the softener offline for days.**
+  On 2026-10-21 the iQua cloud answered `POST /v1/auth/login` once with 401
+  although the password was correct. The coordinator turned that straight into
+  `ConfigEntryAuthFailed`, HA stopped polling and — because the config flow had
+  no reauth step — every entity (incl. the leak sensor) stayed `unavailable`
+  for two days until the entry was reloaded by hand.
+  - Now a rejected login only fails that update (`UpdateFailed`) and is retried
+    on the next 5-minute cycle. HA is asked to re-authenticate only after
+    **≥ 3 rejections in a row spanning ≥ 30 minutes**; a successful update
+    resets the streak. The streak survives setup retries/reloads.
+
+### Added
+- **Re-authentication** (`reauth` / `reauth_confirm`): when HA does ask, the
+  flow first retries the stored credentials and, if the cloud accepts them
+  again, reloads the entry silently. Only otherwise it shows "Re-authenticate"
+  with the e-mail pre-filled. The account must still contain the same softener.
+- **Reconfigure** (entry menu → *Reconfigure*): change e-mail / password without
+  removing the integration.
+- EN/PL strings for both; tests (`pytest-homeassistant-custom-component`).
+
+### Changed
+- `hacs.json` minimum Home Assistant 2024.11.0 (reauth/reconfigure helpers).
+
 ## [0.2.0] — 2026-06-17
 
 First working deployment for the **Aquahome Duo Smart** (EU / Viessmann-EcoWater,
@@ -56,5 +82,6 @@ iQua app). Everything below was built and deployed on the same day, in this orde
   offline / high-daily-usage (threshold helper).
 - `Total water used` added to the **Energy** dashboard as the house water meter.
 
+[0.2.1]: https://github.com/Fidziu/homeassistant-myiqua-softener/releases/tag/v0.2.1
 [0.2.0]: https://github.com/jakubkotlorz/myiqua-api-poc
 [Keep a Changelog]: https://keepachangelog.com/

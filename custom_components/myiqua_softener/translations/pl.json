@@ -8,15 +8,34 @@
           "email": "E-mail",
           "password": "Hasło"
         }
+      },
+      "reauth_confirm": {
+        "title": "Zaloguj ponownie do MyIqua",
+        "description": "Chmura iQua kilkukrotnie odrzuciła zapisane logowanie dla {name}. Podaj ponownie e-mail i hasło z aplikacji iQua.",
+        "data": {
+          "email": "E-mail",
+          "password": "Hasło"
+        }
+      },
+      "reconfigure": {
+        "title": "Zmień dane logowania MyIqua",
+        "description": "Zmień e-mail i hasło z aplikacji iQua używane dla {name}.",
+        "data": {
+          "email": "E-mail",
+          "password": "Hasło"
+        }
       }
     },
     "error": {
       "invalid_auth": "Nieprawidłowy e-mail lub hasło.",
       "cannot_connect": "Nie udało się połączyć z chmurą iQua.",
-      "no_devices": "Nie znaleziono zmiękczacza na tym koncie."
+      "no_devices": "Nie znaleziono zmiękczacza na tym koncie.",
+      "wrong_account": "Na tym koncie nie ma skonfigurowanego zmiękczacza."
     },
     "abort": {
-      "already_configured": "Ten zmiękczacz jest już skonfigurowany."
+      "already_configured": "Ten zmiękczacz jest już skonfigurowany.",
+      "reauth_successful": "Ponowne logowanie powiodło się.",
+      "reconfigure_successful": "Dane logowania zaktualizowane."
     }
   }
 }
